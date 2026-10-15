@@ -36,12 +36,22 @@ namespace Assignment_Session01
             #region Q03
             //3.Get all products where UnitPrice is between 10 and 30
 
-            var productsBetween10and30 = ProductList
-                .Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30)
-                .Select(p => new { p.ProductName, p.UnitPrice });
+            //var productsBetween10and30 = ProductList
+            //    .Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30)
+            //    .Select(p => new { p.ProductName, p.UnitPrice });
 
-            foreach (var p in productsBetween10and30)
-            { Console.WriteLine($"Product Name: {p.ProductName} ||  Price: {p.UnitPrice:C2}"); }
+            //foreach (var p in productsBetween10and30)
+            //{ Console.WriteLine($"Product Name: {p.ProductName} ||  Price: {p.UnitPrice:C2}"); }
+            #endregion
+
+            #region Q04
+            //4.Get all products that are in stock(UnitsInStock >0) and belong to the "Condiments" category.
+            var Spices_Condimentsproduts = ProductList
+                .Where(p => p.Category == "Spices & Condiments" && p.UnitsInStock > 0)
+               .Select(p => new { p.ProductName, p.UnitsInStock });
+
+            foreach (var p in Spices_Condimentsproduts)
+            {Console.WriteLine($"Product Name: {p.ProductName} || Units in Stock: {p.UnitsInStock}");}
             #endregion
         }
     }
