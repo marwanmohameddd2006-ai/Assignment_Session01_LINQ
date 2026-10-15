@@ -25,12 +25,23 @@ namespace Assignment_Session01
             //2.Get a list of only the product names from ProductList.
             // Print each name.
 
-            var ProductName = ProductList
-               .Select(p => new { p.ProductName});
+            //var ProductName = ProductList
+            //   .Select(p => new { p.ProductName});
 
-            foreach(var p in ProductName)
-            { Console.WriteLine($"Product Name: {p.ProductName}"); }
+            //foreach(var p in ProductName)
+            //{ Console.WriteLine($"Product Name: {p.ProductName}"); }
 
+            #endregion
+
+            #region Q03
+            //3.Get all products where UnitPrice is between 10 and 30
+
+            var productsBetween10and30 = ProductList
+                .Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30)
+                .Select(p => new { p.ProductName, p.UnitPrice });
+
+            foreach (var p in productsBetween10and30)
+            { Console.WriteLine($"Product Name: {p.ProductName} ||  Price: {p.UnitPrice:C2}"); }
             #endregion
         }
     }
