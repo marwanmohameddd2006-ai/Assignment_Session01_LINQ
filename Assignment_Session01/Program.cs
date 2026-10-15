@@ -46,12 +46,31 @@ namespace Assignment_Session01
 
             #region Q04
             //4.Get all products that are in stock(UnitsInStock >0) and belong to the "Condiments" category.
-            var Spices_Condimentsproduts = ProductList
-                .Where(p => p.Category == "Spices & Condiments" && p.UnitsInStock > 0)
-               .Select(p => new { p.ProductName, p.UnitsInStock });
+            //var Spices_Condimentsproduts = ProductList
+            //    .Where(p => p.Category == "Spices & Condiments" && p.UnitsInStock > 0)
+            //   .Select(p => new { p.ProductName, p.UnitsInStock });
 
-            foreach (var p in Spices_Condimentsproduts)
-            {Console.WriteLine($"Product Name: {p.ProductName} || Units in Stock: {p.UnitsInStock}");}
+            //foreach (var p in Spices_Condimentsproduts)
+            //{Console.WriteLine($"Product Name: {p.ProductName} || Units in Stock: {p.UnitsInStock}");}
+            #endregion
+
+            #region Q05
+            //5.Create a new anonymous type with three
+            //properties: ● Name → the product name
+            //● Price → the unit price
+            //● StockStatus → a string: "Available" if
+            //UnitsInStock > 0, otherwise "Out of Stock"
+            //● Print the result.
+
+            var Products = ProductList
+            .Select(p => new { Name = p.ProductName, Price = p.UnitPrice, StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock" });
+
+            foreach (var p in Products)
+            { Console.WriteLine($"Product Name: {p.Name} || Price: {p.Price:C2} || Stock Status: {p.StockStatus}");}
+
+
+
+
             #endregion
         }
     }
