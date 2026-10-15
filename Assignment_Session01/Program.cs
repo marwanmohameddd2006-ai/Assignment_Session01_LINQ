@@ -62,15 +62,26 @@ namespace Assignment_Session01
             //UnitsInStock > 0, otherwise "Out of Stock"
             //● Print the result.
 
-            var Products = ProductList
-            .Select(p => new { Name = p.ProductName, Price = p.UnitPrice, StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock" });
+            //var Products = ProductList
+            //.Select(p => new { Name = p.ProductName, Price = p.UnitPrice, StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock" });
 
-            foreach (var p in Products)
-            { Console.WriteLine($"Product Name: {p.Name} || Price: {p.Price:C2} || Stock Status: {p.StockStatus}");}
-
-
+            //foreach (var p in Products)
+            //{ Console.WriteLine($"Product Name: {p.Name} || Price: {p.Price:C2} || Stock Status: {p.StockStatus}");}
 
 
+
+            #endregion
+
+            #region Q06
+            //6.Print each product's name along with its position
+            //(1 - based) in the list. Expected format: 1.Chai, 2.
+            //Chang, etc.
+
+            //var ProductsIndex = ProductList
+            //    .Select((p,i) => new { index=i , Name = p.ProductName } );
+
+            //foreach (var p in ProductsIndex)
+            //{ Console.WriteLine($" {p.index+1}.{p.Name}"); }
             #endregion
         }
     }
